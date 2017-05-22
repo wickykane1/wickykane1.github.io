@@ -47,17 +47,17 @@
 </head>
 
 <body>
-  <video id="video" width="100%" controls>
+  <video id="video" width="100%" controls webkit-playsinline="true" playsinline="true">
     <source src="https://sandbox-c0-vcdn.anthill.vn/dynamic/19755/2017/04/19/temp/video1.mp4"> Your browser does not support HTML5 video. </video>
   <script type="text/javascript" language="javascript">
+  var video = document.getElementById("video");
+  document.getElementById("video").addEventListener('webkitfullscreenchange', onFullScreen);
+  
+
   function onFullScreen(e) {
     var isFullscreenNow = document.webkitFullscreenElement !== null
-    if(isFullscreenNow){
-      alert(e.timeStamp)
-    }
+    alert(isFullscreenNow);
   }
-
-  document.getElementById("video").addEventListener('webkitfullscreenchange', onFullScreen)
   </script>
 </body>
 
