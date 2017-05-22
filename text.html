@@ -4,7 +4,6 @@
 <head>
   <meta charset="utf-8">
   <title>test</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <style type="text/css">
   body,
   html {
@@ -36,15 +35,6 @@
     text-align: center;
     background-color: #FFF;
   }
-  /*Định các thành phần vị trí trong banner bằng %
-#banner {
-}
-#click{
-	position: absolute;
-	width: 100%;
-	z-index: 9;
-}
-*/
   
   #tvc {
     width: 100%;
@@ -57,40 +47,16 @@
 </head>
 
 <body>
-  <h1>THIS IS HIEU</h1>
-  <div class="table">
-    <div class="cell">
-      <div class="childcentereddiv">
-        <div id="banner">
-          <div id="tvc">
-            <video width="100%" controls>
-              <source src="https://sandbox-c0-vcdn.anthill.vn/dynamic/19755/2017/04/19/temp/video1.mp4"> Your browser does not support HTML5 video. </video>
-          </div>
-          <div><img src="https://c0-vcdn.anthill.vn/dynamic/19620/2017/05/16/728101cd59619dafc554de0f2bfd3599/images/bg360x640.jpg"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <img src="https://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=19&mc=imp&pli=20006992&PluID=0&ord=[timestamp]&rtu=-1" height="0" width="0" style="display:none" />
+  <video id="video" width="100%" controls>
+    <source src="https://sandbox-c0-vcdn.anthill.vn/dynamic/19755/2017/04/19/temp/video1.mp4"> Your browser does not support HTML5 video. </video>
   <script type="text/javascript" language="javascript">
-  var banner = document.getElementById("banner");
-  banner.addEventListener("click", function() {
-    window.open("https://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=20&mc=click&pli=20006992&PluID=0&ord=[timestamp]", "_blank");
-    var ants_zone_id = window.location.hash.replace("#", "");
-    var ants_data = {
-      id: ants_zone_id,
-      action: "click",
-      $: "ants-html5"
-    };
-    ants_data = JSON.stringify(ants_data);
-    window.parent.postMessage(ants_data, "*");
-  });
+  function onFullScreen(e) {
+    alert(e.timeStamp)
+    console.log(e);
+  }
+
+  document.getElementById("video").addEventListener('webkitfullscreenchange', onFullScreen)
   </script>
 </body>
-<script src="https://c0-vcdn.anthill.vn/dynamic/19620/2017/05/16/728101cd59619dafc554de0f2bfd3599/js/fitvids.js"></script>
-<script>
-// Basic FitVids Test
-$("#tvc").fitVids();
-</script>
 
 </html>
